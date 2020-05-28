@@ -1,4 +1,4 @@
-Genetic_algorithm.py
+
 from random import randint, random, choice
 
 
@@ -45,6 +45,9 @@ class GeneticAlgorithm:
         if randint(0, self.maxn) == 0:
             gen[randint(0, len(gen) - 1)] += choice([-1, 1])
         return gen
+
+    def count_mutations(self,gen):
+        return sum([gen[i] for i in range(len(gen))])
 
     def get_new_generation(self, gens):
         genslc = [1 / abs(self.count_survival(i)) for i in gens]
